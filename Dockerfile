@@ -7,6 +7,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Use PORT environment variable dynamically provided by Render
+# Listen on dynamic port provided by Render
 ENV PORT=10000
-CMD ["sh", "-c", "streamlit run app.py --server.port ${PORT} --server.address 0.0.0.0"]
+CMD ["sh", "-c", "streamlit run frontend.py --server.port ${PORT} --server.address 0.0.0.0"]
