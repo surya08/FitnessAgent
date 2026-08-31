@@ -364,13 +364,11 @@ elif st.session_state.stage == "fail_flow":
       st.session_state.stage = "daily_plan"
       st.rerun()
 
-# add code this 
-
-code_to_add = """
 
 from fastapi import FastAPI
 from pydantic import BaseModel
 import os
+# Import your agent logic here
 
 app = FastAPI()
 
@@ -383,9 +381,7 @@ def home():
 
 @app.post("/chat")
 def chat_with_agent(data: Query):
+    # Pass data.user_message into your fitness agent logic
+    # response = my_fitness_agent(data.user_message)
     response = f"Agent received: {data.user_message}" 
     return {"response": response}
-"""
-
-with open("app.py", "a") as f:
-    f.write(code_to_add)
